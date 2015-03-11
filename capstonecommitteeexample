@@ -9,6 +9,68 @@
   </head>
   <body>
     
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#"></a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+
+    <ul class="right">
+      <li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <input type="text" placeholder="Find Stuff">
+          </div>
+          <div class="large-4 small-3 columns">
+            <a href="#" class="alert button expand">Search</a>
+          </div>
+        </div>
+      </li>
+      <li class="active"><a href="#">Committee Page</a></li>
+
+      <li class="has-dropdown">
+        <a href="#">Menu</a>
+        <ul class="dropdown">
+          <li><a href="#">Homepage</a></li>
+          <li class="has-dropdown"><a href="#">About</a>
+              <ul class="dropdown">
+                <li><a href="#">History</a></li>
+                <li><a href="#">Inspiration</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Media</a></li>
+              </ul>
+          </li>
+          <li class="active"><a href="#">Committees</a></li>
+          <li class="has-dropdown"><a href="#">Get Involved</a>
+            <ul class="dropdown">
+              <li><a href="#">Students</a></li>
+              <li><a href="#">Corporate</a></li>
+              <li><a href="#">Families</a></li>
+              <li><a href="#">Alumni</a></li>
+            </ul> 
+          </li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Apparel Store</a></li>
+
+        </ul>
+      </li>
+    </ul>
+
+    
+
+
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#">Home</a></li>
+    </ul>
+  </section>
+</nav>
        
    
    
@@ -17,7 +79,7 @@
         <div class="large-3 columns">
           <h1><img src="http://www.iudm.org/wp-content/uploads/2014/07/xIUDM-FINAL-LOGO-e1405570111613.png.pagespeed.ic.BgTpf9ZJnM.jpg&text=Logo"></h1>
         </div>
-        <div class="large-9 columns">
+ <!--       <div class="large-9 columns">
           <ul class="button-group right">
             <li><a href="#" class="button">About</a></li>
             <li><a href="#" class="button">Get Involved</a></li>
@@ -26,7 +88,7 @@
           </ul>
         </div>
       </div>
-      
+       -->
        
       
       
@@ -36,7 +98,7 @@
          
         <div class="large-9 push-3 columns">
           
-          <h3>COMMITTEE PAGE <small>Page subtitle</small></h3>
+          <h3>Accounting <small>director: Fname Lname</small></h3>
           
           <p>Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin. Venison tail chuck pork chop, andouille ball tip beef ribs flank boudin bacon. Salami andouille pork belly short ribs flank cow. Salami sirloin turkey kielbasa. Sausage venison pork loin leberkas chuck short loin, cow ham prosciutto pastrami jowl. Ham hock jerky tri-tip, fatback hamburger shoulder swine pancetta ground round. Tri-tip prosciutto meatball turkey, brisket spare ribs shankle chuck cow chicken ham hock boudin meatloaf jowl.</p>
      
@@ -54,23 +116,23 @@
         <div class="large-3 pull-9 columns">
             
           <ul class="side-nav">
-            <li><a href="#">Option 1</a></li>
-            <li><a href="#">Option 2</a></li>
-            <li><a href="#">Option 3</a></li>
-            <li><a href="#">Option 4</a></li>
-            <li><a href="#">Option 5</a></li>
-            <li><a href="#">Option 6</a></li>
-            <li><a href="#">Option 7</a></li>
-            <li><a href="#">Option 8</a></li>
-            <li><a href="#">Option 9</a></li>
-            <li><a href="#">Option 10</a></li>
-            <li><a href="#">Option 11</a></li>
-            <li><a href="#">Option 12</a></li>
-            <li><a href="#">Option 13</a></li>
-            <li><a href="#">Option 14</a></li>
-            <li><a href="#">Option 15</a></li>
-            <li><a href="#">Option 16</a></li>
-            <li><a href="#">Option 17</a></li>
+            <li><a href="#">Accounting</a></li>
+            <li><a href="#">Alumni Relations</a></li>
+            <li><a href="#">Corporate Relations</a></li>
+            <li><a href="#">Dancer Relations</a></li>
+            <li><a href="#">Entertainment</a></li>
+            <li><a href="#">Fundraising</a></li>
+            <li><a href="#">Hospitality</a></li>
+            <li><a href="#">Logistics</a></li>
+            <li><a href="#">Marathon Relations</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Merchandising and Apparel</a></li>
+            <li><a href="#">Morale</a></li>
+            <li><a href="#">Public Relations</a></li>
+            <li><a href="#">Recruitment</a></li>
+            <li><a href="#">Riley Development</a></li>
+            <li><a href="#">Special Events</a></li>
+            <li><a href="#">Stewardship</a></li>
           </ul>
           
           <p><img src="http://placehold.it/320x240&text=Img"/></p>
