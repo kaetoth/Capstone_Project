@@ -1,0 +1,727 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fon",
+				"font-style"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"n",
+				"nav	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<!doctype html>\n<html class=\"no-js\" lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>Registration Form </title>\n    <link rel=\"stylesheet\" href=\"css/foundation.css\" />\n    <script src=\"js/vendor/modernizr.js\"></script>\n  </head>\n  <body>\n\n      <div class=\"row\">\n        <div class=\"large-3 columns\">\n          <h1><img src=\"http://www.iudm.org/wp-content/uploads/2014/07/xIUDM-FINAL-LOGO-e1405570111613.png.pagespeed.ic.BgTpf9ZJnM.jpg&text=Logo\"></h1>\n        </div>\n        <div class=\"large-9 columns\">\n          <ul class=\"button-group right\">\n            <li><a href=\"#\" class=\"button\">About</a></li>\n            <li><a href=\"#\" class=\"button\">Get Involved</a></li>\n            <li><a href=\"#\" class=\"button\">Donate</a></li>\n            <li><a href=\"#\" class=\"button\">Contact Us</a></li>\n          </ul>\n        </div>\n      </div>\n<?php  \n //form validation  \n // define variables and set to empty values  \n $firstname = $lastname = $email = $phone = $username = \"\";  \n @$pass = @$confirmpass = \"\";  \n if ($_SERVER[\"REQUEST_METHOD\"] == \"POST\")  \n {  \n  $firstname = test_input($_POST[\"firstname\"]);  \n  $lastname = test_input($_POST[\"lastname\"]);  \n  $email = test_input($_POST[\"email\"]);  \n  $phone = test_input($_POST[\"phone\"]);    \n  $username = test_input($_POST[\"username\"]);  \n  @$pass = test_input($_POST[\"pass\"]);\n  @$confirmpass = test_input($_POST[\"confirmpass\"]);\n }  \n function test_input($data)  \n {  \n  $data = trim($data);  \n  $data = stripslashes($data);  \n  $data = htmlspecialchars($data);  \n  return $data;  \n }  \n ?>\n <?php  \n // define variables and initialize with empty values  \n $fnameErr = $lnameErr = $emailErr = $phoneErr = $unameErr = $passErr = $confirmpassErr = \"\";  \n $fname1 = $lname1 = $email1 = $phone1 = $uname1 = $pass1 = $confirmpass1 = \"\";  \n if ($_SERVER[\"REQUEST_METHOD\"] == \"POST\") {  \n  $valid = true;  \n      if(empty($_POST[\"firstname\"])) {  \n     $fnameErr = \"Missing Firstname\";  \n     $valid =false;  \n      }  \n   else {  \n     $fname1 = test_input($_POST[\"firstname\"]);  \n           // check if name only contains letters and whitespace  \n   if (!preg_match(\"/^[a-zA-Z ]*$/\",$firstname))  \n    {  \n    $fnameErr = \"Only letters and white space allowed\";  \n    $valid=false;  \n       }  \n   }  \n      if (empty($_POST[\"lastname\"])) {  \n     $lnameErr = \"Missing Lastname\";  \n      $valid=false;  \n      }  \n   else {  \n     $lname1 = test_input($_POST[\"lastname\"]);  \n     // check if name only contains letters and whitespace  \n   if (!preg_match(\"/^[a-zA-Z ]*$/\",$lastname))  \n    {  \n    $lnameErr = \"Only letters and white space allowed\";  \n    $valid=false;  \n       }  \n      }  \n   if (empty($_POST[\"email\"])) {  \n     $emailErr = \"Missing E-mail address\";  \n     $valid=false;  \n      }  \n   else {  \n     $email1 = test_input($_POST[\"email\"]);  \n           // check if e-mail address syntax is valid  \n   if (!preg_match(\"/([\\w\\-]+\\@[\\w\\-]+\\.[\\w\\-]+)/\",$email))  \n    {  \n    $emailErr = \"Invalid email format\";  \n    $valid=false;  \n       }  \n   }  \n   if (empty($_POST[\"phone\"])) {  \n     $phoneErr = \"Specify a phone number.\";  \n     $valid=false;  \n      }  \n   else {  \n     $phone1 = test_input($_POST[\"phone\"]);\n	 if (!preg_match(\"/[^0-9]/\", $phone))\n	 {\n	 $phoneErr = \"Invalid phone format, must include hyphens\";\n	 $valid=false;\n   }  \n   \n       }  \n      if (empty($_POST[\"username\"])) {  \n     $unameErr = \"specify your username\";  \n     $valid=false;  \n      }  \n   else {  \n     $uname1 = test_input($_POST[\"username\"]);  \n   }  \n     if (empty($_POST[\"pass\"])) {  \n     $passErr = \"specify your password\";  \n     $valid=false;  \n      }  \n   else {  \n     $pass1 = test_input($_POST[\"pass\"]);  \n   }\n	  if (empty($_POST[\"confirmpass\"])) {\n	  $confirmpassErr = \"specify your password\";\n	  $valid=false;\n	  }\n	  else {\n	   $confirmpass1 = test_input($_POST[\"confirmpass\"]);\n	   if ($_POST[\"pass\"] !== $_POST[\"confirmpass\"]){\n	   $confirmpassErr = \"Your password does not match.\";\n	   $valid=false;\n	   }\n	  }\n	}\n // here form validation ends        \n ?>\n<?php  \n if(@$valid==true)  \n       {  \n $connection= mysql_connect(\"silo.soic.indiana.edu:34541\",\"bradwart\",\"bwart\"); \n mysql_select_db(\"register\", $connection);  \n @$a=$_POST['firstname'];  \n @$b=$_POST['lastname'];  \n @$c=$_POST['email'];  \n @$d=$_POST['phone'];   \n @$e=$_POST['username'];\n @$f=$_POST['pass'];\n @$g=$_POST['confirmpass'];\n @$h=$_POST['comment'];\n mysql_query(\"insert into user (firstname,lastname,email,phone,username,pass,confirmpass,comment) values('$a','$b','$c','$d','$e','$f','$g','$h')\");  \n mysql_close($connection);\n echo \"You have successfully registered for IUDM!\"; \n       }\n ?>  \n</head>\n<style>\ntable#iudmtable {\n	color: blue;\n	font-family: arial;\n	font-size: 20px;\n	width: 75%;\n	margin-left: auto;\n	margin-right: auto;\n	border: 5px solid blue;\n	padding: 15px;\n	background-image:url(\"http://ironiudman.net/newsite/wp-content/uploads/2011/10/IUDMSiteLogo.png\");\n	background-size: 750px 250px;\n	background-position: center;\n	background-repeat: no-repeat;\n }\n table#iudmtable td {\n	text-align: left;\n }\n h1 {\n	 color: blue;\n	 font-family: arial;\n }\n</style>\n<body>\n<center><h1>IUDM Registration Form</h1></center>\n	<table id=\"iudmtable\">\n	<section id = \"form\">\n		<form name=\"iudmform\" method=\"post\" action=\"iudm_reg.php\">\n\n		\n		<tr>\n		<td><br><label for=\"firstname\"> First Name: </label>\n		<br><br><input type=\"text\" name=\"firstname\" id=\"firstname\" value=\"<?php echo htmlspecialchars($firstname);?>\" required /><br>\n		<span class=\"error\"><font color=\"red\"><i><?php echo \"&nbsp&nbsp&nbsp\".$fnameErr;?></i></font></span>\n		</td>\n		</tr>\n\n\n		<tr>\n		<td><br><label for=\"lastname\"> Last Name: </label>\n		<br><br><input type=\"text\" name=\"lastname\" id=\"lastname\" value=\"<?php echo htmlspecialchars($lastname);?>\" required /><br>\n		<span class=\"error\"><font color=\"red\"><i><?php echo \"&nbsp&nbsp&nbsp\".$lnameErr;?></i></font></span>\n		</td>\n		</tr>\n		<tr>\n		<td><br><label for=\"email\"> E-mail Address: </label>\n		<br><br><input type=\"text\" name=\"email\" id=\"email\" value=\"<?php echo htmlspecialchars($email);?>\" required /><br>\n		<span class=\"error\"><font color=\"red\"><i><?php echo \"&nbsp&nbsp&nbsp\".$emailErr;?></i></font></span>\n		</td>\n		</tr>\n		<tr>\n		<td><br><label for=\"phone\"> Phone Number: </label>\n		<br><br><input type=\"tel\" name=\"phone\" id=\"phone\" value=\"<?php echo htmlspecialchars($phone);?>\" required /><br>\n		<span class=\"error\"><font color=\"red\"><i><?php echo \"&nbsp&nbsp&nbsp\".$phoneErr;?></i></font></span>\n		</td>\n		</tr>\n		<tr>\n		<td><br><label for=\"username\"> IU Username: </label>\n		<br><br><input type=\"text\" name=\"username\" id=\"username\" value=\"<?php echo htmlspecialchars($username);?>\" required /><br>\n		<span class=\"error\"><font color=\"red\"><i><?php echo \"&nbsp&nbsp&nbsp\".$usnameErr;?></i></font></span>\n		</td>\n		</tr>\n		<tr>\n		<td><br><label for=\"pass\"> Password: </label>\n		<br><br><input type=\"password\" name=\"pass\" id=\"pass\" value=\"<?php echo htmlspecialchars($pass);?>\" required /><br>\n		<span class=\"error\"><font color=\"red\"><i><?php echo \"&nbsp&nbsp&nbsp\".$passErr;?></i></font></span>\n		</td>\n		</tr>\n		<tr>\n		<td><br><label for=\"confirmpass\"> Confirm Password: </label>\n		<br><br><input type=\"password\" name=\"confirmpass\" id=\"confirmpass\" value=\"<?php echo htmlspecialchars($confirmpass);?>\" required /><br>\n		<span class=\"error\"><font color=\"red\"><i><?php echo \"&nbsp&nbsp&nbsp\".$confirmpassErr;?></i></font></span>\n		</td>\n		</tr>\n		<tr>\n		<td><br><label for=\"comment\"> Comments: </label>\n		<br><br><textarea name=\"comment\" id=\"comment\" rows=\"6\" cols =\"30\"></textarea><br>\n		</td>\n		</tr>\n		<tr><td><input type=\"submit\" value=\"Send\">\n		<input type=\"reset\" value=\"Reset\"></td>\n		</tr>\n		</form>\n	</section>\n	</table>\n	\n\n	 <footer class=\"row\">\n        <div class=\"large-12 columns\">\n          <hr/>\n          <div class=\"row\">\n            <div class=\"large-6 columns\">\n              <p>© Indiana University Dance Marathon</p>\n            </div>\n            <div class=\"large-6 columns\">\n              <ul class=\"inline-list right\">\n                <li><a href=\"#\">About</a></li>\n                <li><a href=\"#\">Get Involved</a></li>\n                <li><a href=\"#\">Donate</a></li>\n                <li><a href=\"#\">Contact Us</a></li>\n              </ul>\n            </div>\n          </div>\n        </div>\n      </footer>\n\n\n\n\n\n    <script src=\"js/vendor/jquery.js\"></script>\n    <script src=\"js/foundation.min.js\"></script>\n    <script>\n      $(document).foundation();\n    </script>\n  </body>\n</html>\n",
+			"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/iudm_reg.php",
+			"file_size": 7201,
+			"file_write_time": 130705583790000000,
+			"settings":
+			{
+				"buffer_size": 8578,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/css/foundation.css",
+			"settings":
+			{
+				"buffer_size": 196175,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "var gulp = require('gulp'); \nvar gulp = require('gulp-util');\n\n\n// Include Our Plugins\nvar jshint = require('gulp-jshint');\nvar sass = require('gulp-sass');\nvar concat = require('gulp-concat');\nvar uglify = require('gulp-uglify');\nvar rename = require('gulp-rename');\n\n// Lint Task\ngulp.task('lint', function() {\n    return gulp.src('js/*.js')\n        .pipe(jshint())\n        .pipe(jshint.reporter('default'));\n});\n\n/* Compile Our Sass\ngulp.task('sass', function() {\n    return gulp.src('scss/*.scss')\n        .pipe(sass())\n        .pipe(gulp.dest('css'));\n});*/\n\n// Concatenate & Minify JS\ngulp.task('scripts', function() {\n    return gulp.src('js/*.js')\n        .pipe(concat('all.js'))\n        .pipe(gulp.dest('dist'))\n        .pipe(rename('all.min.js'))\n        .pipe(uglify())\n        .pipe(gulp.dest('dist'));\n});\n\n// Watch Files For Changes\ngulp.task('watch', function() {\n    gulp.watch('js/*.js', ['lint', 'scripts']);\n    /*gulp.watch('scss/*.scss', ['sass']);*/\n});\n\n// Default Task\ngulp.task('default', ['lint', 'scripts', 'watch']);",
+			"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/gulp.js",
+			"file_size": 1072,
+			"file_write_time": 130717144320000000,
+			"settings":
+			{
+				"buffer_size": 1044,
+				"line_ending": "Unix",
+				"name": "var gulp = require('gulp');"
+			}
+		},
+		{
+			"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonemainpage.html",
+			"settings":
+			{
+				"buffer_size": 6095,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonecontactpage.html",
+			"settings":
+			{
+				"buffer_size": 16403,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonehistorypage.html",
+			"settings":
+			{
+				"buffer_size": 5689,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/iudm_regform.html",
+			"settings":
+			{
+				"buffer_size": 9169,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstoneaboutpage.html",
+			"settings":
+			{
+				"buffer_size": 6143,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 105,
+				"line_ending": "Unix",
+				"name": "{"
+			}
+		},
+		{
+			"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonecommitteeexample.html",
+			"settings":
+			{
+				"buffer_size": 6856,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html>\n<html lang=\"en\" class=\"no-js\">\n	<head>\n		<meta charset=\"UTF-8\" />\n		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> \n		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> \n		<title>IUDM Executive Council</title>\n		<meta name=\"description\" content=\"Scattered Polaroids Gallery: A flat-style take on a Polaroid gallery\" />\n		<meta name=\"keywords\" content=\"scattered polaroids, image gallery, javascript, random rotation, 3d, backface, flat design\" />\n		<meta name=\"author\" content=\"Codrops\" />\n		<link rel=\"shortcut icon\" href=\"../favicon.ico\">\n		<link rel=\"stylesheet\" type=\"text/css\" href=\"css/normalize1.css\" />\n		<link rel=\"stylesheet\" type=\"text/css\" href=\"css/demo.css\" /> \n		<link rel=\"stylesheet\" type=\"text/css\" href=\"css/component.css\" /> \n		<script src=\"js/modernizr.min.js\"></script>\n	</head>\n	<body>\n		<div class=\"container\">\n			<!-- Top Navigation -->\n			<header class=\"codrops-header\">\n				<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1000px\" height=\"300px\" class=\"polaroid\" preserveAspectRatio=\"xMidYMid meet\" viewBox=\"0 0 1000 300\">\n					<g transform=\"rotate(-9.424738883972168 131.13208007812517,131.28302001953134) \"><rect id=\"svg_6\" height=\"194.264154\" width=\"194.264154\" y=\"34.15094\" x=\"34\"/><rect id=\"svg_7\" height=\"116.226417\" width=\"152.754719\" y=\"56.566035\" x=\"54.754717\"/></g><rect id=\"svg_2\" height=\"0\" width=\"1\" y=\"108\" x=\"123\" stroke-width=\"10\" stroke=\"#000000\" fill=\"#ffffff\"/><g id=\"svg_10\" transform=\"rotate(8.810273170471191 211.13208007812494,164.28302001953114) \"><rect id=\"svg_11\" height=\"194.264154\" width=\"194.264154\" y=\"67.15094\" x=\"114\"/><rect id=\"svg_12\" height=\"116.226417\" width=\"152.754719\" y=\"89.566035\" x=\"134.754717\"/></g><g id=\"svg_13\" transform=\"rotate(-14.838730812072754 350.132080078125,168.28302001953125) \"><rect id=\"svg_14\" height=\"194.264154\" width=\"194.264154\" y=\"71.15094\" x=\"253\"/><rect id=\"svg_15\" height=\"116.226417\" width=\"152.754719\" y=\"93.566035\" x=\"273.754717\"/></g><g id=\"svg_16\" transform=\"rotate(-1.4553210735321045 476.1320800781219,121.28302001953003) \"><rect id=\"svg_17\" height=\"194.264154\" width=\"194.264154\" y=\"24.15094\" x=\"379\"/><rect id=\"svg_18\" height=\"116.226417\" width=\"152.754719\" y=\"46.566035\" x=\"399.754717\"/></g><g id=\"svg_19\" transform=\"rotate(-4.776742458343506 556.1320800781244,176.28302001953122) \"><rect id=\"svg_20\" height=\"194.264154\" width=\"194.264154\" y=\"79.15094\" x=\"459\"/><rect id=\"svg_21\" height=\"116.226417\" width=\"152.754719\" y=\"101.566035\" x=\"479.754717\"/></g><g id=\"svg_22\" transform=\"rotate(17.17530059814453 690.1320800781251,163.2830200195312) \"><rect id=\"svg_23\" height=\"194.264154\" width=\"194.264154\" y=\"66.15094\" x=\"593\"/><rect id=\"svg_24\" height=\"116.226417\" width=\"152.754719\" y=\"88.566035\" x=\"613.754717\"/></g><g id=\"svg_25\" transform=\"rotate(-9.506031036376953 771.132080078125,177.28302001953094) \"><rect id=\"svg_26\" height=\"194.264154\" width=\"194.264154\" y=\"80.15094\" x=\"674\"/><rect id=\"svg_27\" height=\"116.226417\" width=\"152.754719\" y=\"102.566035\" x=\"694.754717\"/></g><g id=\"svg_28\" transform=\"rotate(19.351133346557617 862.1320800781251,137.28302001953148) \"><rect id=\"svg_29\" height=\"194.264154\" width=\"194.264154\" y=\"40.15094\" x=\"765\"/><rect id=\"svg_30\" height=\"116.226417\" width=\"152.754719\" y=\"62.566035\" x=\"785.754717\"/></g></g>\n				</svg>\n				<h1>Meet this years IUDM Executive Council</h1>\n			</header>\n			<div class=\"description\">\n				<p>Click on their picture to find more about their committee and what they do!</p>\n				<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400px\" height=\"100px\" class=\"polaroid\" preserveAspectRatio=\"xMidYMid meet\" viewBox=\"0 0 1000 300\">\n					<g transform=\"rotate(-9.424738883972168 131.13208007812517,131.28302001953134) \"><rect id=\"svg_6\" height=\"194.264154\" width=\"194.264154\" y=\"34.15094\" x=\"34\"/><rect id=\"svg_7\" height=\"116.226417\" width=\"152.754719\" y=\"56.566035\" x=\"54.754717\"/></g><rect id=\"svg_2\" height=\"0\" width=\"1\" y=\"108\" x=\"123\" stroke-width=\"10\" stroke=\"#000000\" fill=\"#ffffff\"/><g id=\"svg_10\" transform=\"rotate(8.810273170471191 211.13208007812494,164.28302001953114) \"><rect id=\"svg_11\" height=\"194.264154\" width=\"194.264154\" y=\"67.15094\" x=\"114\"/><rect id=\"svg_12\" height=\"116.226417\" width=\"152.754719\" y=\"89.566035\" x=\"134.754717\"/></g><g id=\"svg_13\" transform=\"rotate(-14.838730812072754 350.132080078125,168.28302001953125) \"><rect id=\"svg_14\" height=\"194.264154\" width=\"194.264154\" y=\"71.15094\" x=\"253\"/><rect id=\"svg_15\" height=\"116.226417\" width=\"152.754719\" y=\"93.566035\" x=\"273.754717\"/></g><g id=\"svg_16\" transform=\"rotate(-1.4553210735321045 476.1320800781219,121.28302001953003) \"><rect id=\"svg_17\" height=\"194.264154\" width=\"194.264154\" y=\"24.15094\" x=\"379\"/><rect id=\"svg_18\" height=\"116.226417\" width=\"152.754719\" y=\"46.566035\" x=\"399.754717\"/></g><g id=\"svg_19\" transform=\"rotate(-4.776742458343506 556.1320800781244,176.28302001953122) \"><rect id=\"svg_20\" height=\"194.264154\" width=\"194.264154\" y=\"79.15094\" x=\"459\"/><rect id=\"svg_21\" height=\"116.226417\" width=\"152.754719\" y=\"101.566035\" x=\"479.754717\"/></g><g id=\"svg_22\" transform=\"rotate(17.17530059814453 690.1320800781251,163.2830200195312) \"><rect id=\"svg_23\" height=\"194.264154\" width=\"194.264154\" y=\"66.15094\" x=\"593\"/><rect id=\"svg_24\" height=\"116.226417\" width=\"152.754719\" y=\"88.566035\" x=\"613.754717\"/></g><g id=\"svg_25\" transform=\"rotate(-9.506031036376953 771.132080078125,177.28302001953094) \"><rect id=\"svg_26\" height=\"194.264154\" width=\"194.264154\" y=\"80.15094\" x=\"674\"/><rect id=\"svg_27\" height=\"116.226417\" width=\"152.754719\" y=\"102.566035\" x=\"694.754717\"/></g><g id=\"svg_28\" transform=\"rotate(19.351133346557617 862.1320800781251,137.28302001953148) \"><rect id=\"svg_29\" height=\"194.264154\" width=\"194.264154\" y=\"40.15094\" x=\"765\"/><rect id=\"svg_30\" height=\"116.226417\" width=\"152.754719\" y=\"62.566035\" x=\"785.754717\"/></g></g>\n				</svg>\n				<p><strong>Click on the gallery to start it.</strong></p>\n			</div>\n			<section id=\"photostack-1\" class=\"photostack photostack-start\">\n				<div>\n					<figure>\n						<a href=\"upperexec.html\" class=\"photostack-img\"><img src=\"img/Luebbe.png\" alt=\"img01\" width = \"240px\" /></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Sam Luebbe | President</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"upperexec.html\" class=\"photostack-img\"><img src=\"img/Tenbarge.png\" alt=\"img02\" width = \"240px\" /></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Will Tenbarge | Vice President of Finance</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"upperexec.html\" class=\"photostack-img\"><img src=\"img/Turchan.png\" alt=\"img03\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Michelle Turchan | Vice President of Membership</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"upperexec.html\" class=\"photostack-img\"><img src=\"img/Sunday.png\" alt=\"img04\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Conner Sunday | Vice President of Communications</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"upperexec.html\" class=\"photostack-img\"><img src=\"img/Michel.png\" alt=\"img05\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Savannah Michel | Vice President of Internal</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"marketing.html\" class=\"photostack-img\"><img src=\"img/Cone.png\" alt=\"img06\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Jennifer Cone | Marketing Director</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"publicrelations.html\" class=\"photostack-img\"><img src=\"img/Martino.png\" alt=\"img07\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Alli Martino | Public Relations Director</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"spevents.html\" class=\"photostack-img\"><img src=\"img/Hickey.png\" alt=\"img08\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Collin Hickey | Special Events Director</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"accounting.html\" class=\"photostack-img\"><img src=\"img/Jackson.png\" alt=\"img09\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Keeler Jackson | Accounting Director</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"cr.html\" class=\"photostack-img\"><img src=\"img/McDevitt.png\" alt=\"img10\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Kelli McDevitt | Corporate Relations Director</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"stewardship.html\" class=\"photostack-img\"><img src=\"img/Coyle.png\" alt=\"img11\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Annie Coyle | Stewardship Director</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"fundraising.html\" class=\"photostack-img\"><img src=\"img/Cisneros.png\" alt=\"img12\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Diana Cisneros | Fundraising Director</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"entertainment.html\" class=\"photostack-img\"><img src=\"img/Wisen.png\" alt=\"img13\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Sam Wisen | Entertainment Director</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"rileyd.html\" class=\"photostack-img\"><img src=\"img/Gustolisi.png\" alt=\"img14\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Sarah Gustolisi | Riley Development Director</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"hospitality.html\" class=\"photostack-img\"><img src=\"img/Orme.png\" alt=\"img15\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Toby Orme | Hospitality Director</h2>\n						</figcaption>\n					</figure>\n					<figure>\n						<a href=\"logistics.html\" class=\"photostack-img\"><img src=\"img/Powell.png\" alt=\"img16\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Kelly Powell | Logistics Director</h2>\n						</figcaption>\n					</figure>\n                    	<figure>\n						<a href=\"morale.html\" class=\"photostack-img\"><img src=\"img/Cason.png\" alt=\"img17\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Ryan Cason | Morale Director</h2>\n						</figcaption>\n					</figure>\n                    					<figure>\n						<a href=\"mr.html\" class=\"photostack-img\"><img src=\"img/Hall.png\" alt=\"img18\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Sydney Hall | Marathon Relations Director</h2>\n						</figcaption>\n					</figure>\n                    					<figure>\n						<a href=\"recruitment.html\" class=\"photostack-img\"><img src=\"img/Strafford.png\" alt=\"img19\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Nick Strafford | Recruitment Director</h2>\n						</figcaption>\n					</figure>\n                    					<figure>\n						<a href=\"dr.html\" class=\"photostack-img\"><img src=\"img/Helfferich.png\" alt=\"img20\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Rachel Helfferich | Dancer Relations Director</h2>\n						</figcaption>\n					</figure>\n                    					<figure>\n						<a href=\"ar.html\" class=\"photostack-img\"><img src=\"img/Crummett.png\" alt=\"img21\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Amanda Crummett | Alumni Relations Director</h2>\n						</figcaption>\n					</figure>\n                    					<figure>\n						<a href=\"merchandise.html\" class=\"photostack-img\"><img src=\"img/Moffatt.png\" alt=\"img22\" width = \"240px\"/></a>\n						<figcaption>\n							<h2 class=\"photostack-title\">Michael Moffatt | Merchandising and Apparel Director</h2>\n						</figcaption>\n					</figure>\n				</div>\n			</section>\n			<section class=\"description\">\n\n		<script src=\"js/classie.js\"></script>\n		<script src=\"js/photostack.js\"></script>\n		<script>\n			// [].slice.call( document.querySelectorAll( '.photostack' ) ).forEach( function( el ) { new Photostack( el ); } );\n			\n			new Photostack( document.getElementById( 'photostack-1' ), {\n				callback : function( item ) {\n					//console.log(item)\n				}\n			} );\n			new Photostack( document.getElementById( 'photostack-2' ), {\n				callback : function( item ) {\n					//console.log(item)\n				}\n			} );\n			new Photostack( document.getElementById( 'photostack-3' ), {\n				callback : function( item ) {\n					//console.log(item)\n				}\n			} );\n		</script>\n	</body>\n</html>",
+			"file": "/Users/kaelyntoth/Downloads/Contact Page/ScatteredPolaroidsGallery/contact.html",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 12599,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "@font-face {\n	font-family: 'icons';\n	src:url('../fonts/icons/icons.eot');\n	src:url('../fonts/icons/icons.eot?#iefix') format('embedded-opentype'),\n		url('../fonts/icons/icons.woff') format('woff'),\n		url('../fonts/icons/icons.ttf') format('truetype'),\n		url('../fonts/icons/icons.svg#icons') format('svg');\n	font-weight: normal;\n	font-style: normal;\n}\n\n.photostack {\n	background: #ddd;\n	position: relative;\n	text-align: center;\n	overflow: hidden;\n}\n\n.js .photostack {\n	height: 580px;\n}\n\n.photostack-start {\n	cursor: pointer;\n}\n\n/* Wrapper and figures */\n\n/* The size of this wrapper can be smaller if the items should not be scattered across the whole container */ \n.photostack > div {\n	width: 100%;\n	height: 100%;\n	margin: 0 auto;\n}\n\n.photostack figure {\n	width: 320px;\n	height: 360px;\n	position: relative;\n	display: inline-block;\n	background: #fff;\n	padding: 40px;\n	text-align: center;\n	margin: 5px;\n}\n\n.js .photostack figure {\n	position: absolute;\n	display: block;\n	margin: 0;\n}\n\n.photostack figcaption h2 {\n	margin: 20px 0 0 0;\n	color: #a7a0a2;\n	font-size: 16px;\n}\n\n.photostack-img {\n	outline: none;\n	display: block;\n	width: 240px;\n	height: 240px;\n	background: #f9f9f9;\n}\n\n.photostack-back {\n	display: none;\n	position: absolute;\n	width: 100%;\n	height: 100%;\n	top: 0;\n	left: 0;\n	background: #fff;\n	font-family: \"Give You Glory\", cursive;\n	color: #a7a0a2;\n	padding: 50px 40px;\n	text-align: left;\n	font-size: 22px;\n	line-height: 1.25;\n	z-index: 1;\n}\n\n.photostack-back p {\n	margin: 0;\n}\n\n.photostack-back p span {\n	text-decoration: line-through;\n}\n\n/* Navigation dots */\n.photostack nav {\n	position: absolute;\n	width: 100%;\n	bottom: 30px;\n	z-index: 90;\n	text-align: center;\n	left: 0;\n	-webkit-transition: opacity 0.3s;\n	transition: opacity 0.3s;\n}\n\n.photostack-start nav {\n	opacity: 0;\n}\n \n.photostack nav span {\n	position: relative;\n	display: inline-block;\n	margin: 0 5px;\n	width: 30px;\n	height: 30px;\n	cursor: pointer;\n	background: #aaa;\n	border-radius: 50%;\n	text-align: center;\n	-webkit-transition: -webkit-transform 0.6s ease-in-out, background 0.3s;\n	transition: transform 0.6s ease-in-out, background 0.3s;\n	-webkit-transform: scale(0.48);\n	transform: scale(0.48);\n}\n\n.photostack nav span:last-child {\n	margin-right: 0;\n}\n\n.photostack nav span::after {\n	content: \"\\e600\";\n	font-family: 'icons';\n	font-size: 80%;\n	speak: none;\n	display: inline-block;\n	vertical-align: top;\n	font-style: normal;\n	font-weight: normal;\n	font-variant: normal;\n	text-transform: none;\n	line-height: 30px;\n	color: #fff;\n	opacity: 0;\n	-webkit-font-smoothing: antialiased;\n	-moz-osx-font-smoothing: grayscale;\n	-webkit-transition: opacity 0.3s;\n	transition: opacity 0.3s;\n	-webkit-backface-visibility: hidden;\n	backface-visibility: hidden;\n}\n\n.photostack nav span.current {\n	background: #888;\n	-webkit-transform: scale(1);\n	transform: scale(1);\n}\n\n.photostack nav span.current.flip {\n	-webkit-transform: scale(1) rotateY(-180deg) translateZ(-1px);\n	transform: scale(1) rotateY(-180deg) translateZ(-1px);\n	background: #555;\n}\n\n.photostack nav span.flippable::after {\n	opacity: 1;\n	-webkit-transition-delay: 0.4s;\n	transition-delay: 0.4s;\n}\n\n/* Overlays */\n\n/* Initial overlay on photostack container */\n.js .photostack::before {\n	content: '';\n	position: absolute;\n	width: 100%;\n	height: 100%;\n	background: rgba(0,0,0,0.5);\n	top: 0;\n	left: 0;\n	z-index: 100;\n	-webkit-transition: opacity 0.3s, visibility 0s 0.3s;\n	transition: opacity 0.3s, visibility 0s 0.3s;\n}\n\n.js .photostack-start::before {\n	-webkit-transition: opacity 0.3s;\n	transition: opacity 0.3s;\n}\n\n/* Button on photostack container */\n.js .photostack::after {\n	content: 'View Gallery';\n	font-weight: 400;\n	position: absolute;\n	border: 3px solid #fff;\n	text-align: center;\n	white-space: nowrap;\n	left: 50%;\n	top: 50%;\n	-webkit-transform: translateY(-50%) translateX(-50%);\n	transform: translateY(-50%) translateX(-50%);\n	padding: 10px 20px;\n	color: #fff;\n	text-transform: uppercase;\n	letter-spacing: 1px;\n	cursor: pointer;\n	z-index: 101;\n}\n\n.js .photostack::before,\n.js .photostack::after {\n	opacity: 0;\n	visibility: hidden;\n}\n\n.js .photostack-start::before,\n.js .photostack-start:hover::after,\n.touch .photostack-start::after  {\n	opacity: 1;\n	visibility: visible;\n}\n\n/* Overlay on figure */\n.photostack figure::after {\n	content: '';\n	position: absolute;\n	width: 100%;\n	height: 100%;\n	top: 0;\n	left: 0;\n	visibility: visible;\n	opacity: 1;\n	background: rgba(0,0,0,0.05);\n	-webkit-transition: opacity 0.6s;\n	transition: opacity 0.6s;\n}\n\n/* Hide figure overlay when it becomes current */\nfigure.photostack-current::after {\n	-webkit-transition: opacity 0.6s, visibility 0s 0.6s;\n	transition: opacity 0.6s, visibility 0s 0.6s;\n	opacity: 0;\n	visibility: hidden;\n}\n\n/* Special classes for transitions and perspective */\n.photostack-transition figure {\n	-webkit-transition: -webkit-transform 0.6s ease-in-out;\n	transition: transform 0.6s ease-in-out;\n}\n\n.photostack-perspective {\n	-webkit-perspective: 1800px;\n	perspective: 1800px;\n}\n\n.photostack-perspective > div,\n.photostack-perspective figure {\n	-webkit-transform-style: preserve-3d;\n	transform-style: preserve-3d;\n}\n\n.photostack-perspective figure,\n.photostack-perspective figure div {\n	-webkit-backface-visibility: hidden;\n	backface-visibility: hidden;\n}\n\n.photostack-perspective figure.photostack-flip {\n	-webkit-transform-origin: 0% 50%;\n	transform-origin: 0% 50%;\n}\n\n.csstransformspreserve3d figure.photostack-flip .photostack-back {\n	-webkit-transform: rotateY(180deg);\n	transform: rotateY(180deg);\n	display: block;\n}\n\n.no-csstransformspreserve3d figure.photostack-showback .photostack-back {\n	display: block;\n}\n\n/* The no-JS fallback look does not need to be boring ;) */\n.no-js .photostack figure {\n	box-shadow: -2px 2px 0 rgba(0,0,0,0.05);\n}\n\n.no-js .photostack figure::after {\n	display: none;\n}\n\n.no-js .photostack figure:nth-child(3n) {\n	-webkit-transform: translateX(-10%) rotate(5deg);\n	transform: translateX(-10%) rotate(5deg);\n}\n\n.no-js .photostack figure:nth-child(3n-2) {\n	-webkit-transform: translateY(10%) rotate(-3deg);\n	transform: translateY(10%) rotate(-3deg);\n}\n\n/* Some custom styles for the demo */\n\n/* Since we don't have back sides for the first photo stack, we don't want the current dot to become too big */\n#photostack-1 nav span.current {\n	background: #888;\n	-webkit-transform: scale(0.61);\n	transform: scale(0.61);\n}",
+			"file": "/Users/kaelyntoth/Downloads/Contact Page/ScatteredPolaroidsGallery/css/component.css",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 6332,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pacck",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Enable Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Package Control: Add Repository"
+			],
+			[
+				"",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/kaelyntoth/Downloads/Contact Page/ScatteredPolaroidsGallery/css",
+		"/Users/kaelyntoth/Desktop/CAPSTONE"
+	],
+	"file_history":
+	[
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonecommitteeexample",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/iudm_regform.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/iudm_regform.php",
+		"/Users/kaelyntoth/Downloads/foundation-5.5.1 2/css/foundation.css",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonecommitteeexample.html",
+		"/Users/kaelyntoth/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/kaelyntoth/Downloads/foundation-5.5.1 2/capstonehistorypage.html",
+		"/Users/kaelyntoth/Downloads/foundation-5.5.1 2/capstoneaboutpage.html",
+		"/Users/kaelyntoth/Downloads/foundation-5.5.1 2/capstonecontactpage.html",
+		"/Users/kaelyntoth/Downloads/foundation-5.5.1 2/capstonecommitteeexample.html",
+		"/Users/kaelyntoth/Documents/mainpageredo.html",
+		"/Users/kaelyntoth/Library/Application Support/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
+		"/Users/kaelyntoth/Desktop/kaelyn_edit.php",
+		"/Users/kaelyntoth/Desktop/iudm_email.html",
+		"/Users/kaelyntoth/Desktop/email.css",
+		"/Users/kaelyntoth/Downloads/css-foundations.zip",
+		"/Users/kaelyntoth/Desktop/spaceship.py",
+		"/Users/kaelyntoth/Documents/mathQuiz.py",
+		"/Users/kaelyntoth/Documents/charles1.py",
+		"/Users/kaelyntoth/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"top-bar-section ",
+			"alert",
+			"alert button",
+			"font-family: \"Helvetica Neue\",",
+			"font-family",
+			"font",
+			"normalize",
+			"input ",
+			"title-area ",
+			"active",
+			"#333333",
+			"top-bar",
+			".back",
+			"back ",
+			"back",
+			"#999999",
+			"off-canvas-list",
+			"left-off-canvas",
+			"left-off",
+			"column"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"font-family: \"Nobile\",",
+			"#008CBA"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/iudm_reg.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8578,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								795,
+								795
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/css/foundation.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 196175,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								46283,
+								46283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 26897.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/gulp.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1044,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								523,
+								523
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var gulp = require('gulp');",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonemainpage.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6095,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								191,
+								191
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonecontactpage.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16403,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								533,
+								533
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonehistorypage.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5689,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								642,
+								642
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/iudm_regform.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9169,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstoneaboutpage.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6143,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								448,
+								448
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2341.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								76,
+								76
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonecommitteeexample.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6856,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								421,
+								421
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/Users/kaelyntoth/Downloads/Contact Page/ScatteredPolaroidsGallery/contact.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12599,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5971,
+								5918
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1973.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/Users/kaelyntoth/Downloads/Contact Page/ScatteredPolaroidsGallery/css/component.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6332,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								342,
+								342
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.434740479346,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "CAPSTONE.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 211.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
