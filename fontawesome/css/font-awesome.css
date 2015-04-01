@@ -545,9 +545,11 @@
 }
 .fa-twitter-square:before {
   content: "\f081";
+  color: #00aced;
 }
 .fa-facebook-square:before {
   content: "\f082";
+  color: #3b5998;
 }
 .fa-camera-retro:before {
   content: "\f083";
@@ -579,6 +581,7 @@
 }
 .fa-linkedin-square:before {
   content: "\f08c";
+  color: #007bb6;
 }
 .fa-thumb-tack:before {
   content: "\f08d";
@@ -615,10 +618,12 @@
 }
 .fa-twitter:before {
   content: "\f099";
+  color: #00aced;
 }
 .fa-facebook-f:before,
 .fa-facebook:before {
   content: "\f09a";
+  color: #3b5998;
 }
 .fa-github:before {
   content: "\f09b";
@@ -746,9 +751,11 @@
 }
 .fa-pinterest:before {
   content: "\f0d2";
+  color: #cb2027;
 }
 .fa-pinterest-square:before {
   content: "\f0d3";
+  color: #cb2027;
 }
 .fa-google-plus-square:before {
   content: "\f0d4";
@@ -791,6 +798,7 @@
 }
 .fa-linkedin:before {
   content: "\f0e1";
+  color: #007bb6;
 }
 .fa-rotate-left:before,
 .fa-undo:before {
@@ -1184,9 +1192,11 @@
 }
 .fa-youtube-square:before {
   content: "\f166";
+  color: #bb0000;
 }
 .fa-youtube:before {
   content: "\f167";
+  color: #bb0000;
 }
 .fa-xing:before {
   content: "\f168";
@@ -1205,6 +1215,7 @@
 }
 .fa-instagram:before {
   content: "\f16d";
+  color: #517fa4;
 }
 .fa-flickr:before {
   content: "\f16e";
@@ -1768,9 +1779,11 @@
 }
 .fa-facebook-official:before {
   content: "\f230";
+  color: #3b5998;
 }
 .fa-pinterest-p:before {
   content: "\f231";
+  color: #cb2027;
 }
 .fa-whatsapp:before {
   content: "\f232";
