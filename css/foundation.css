@@ -1289,6 +1289,11 @@ button, .button {
     padding-right: 0.75rem; }
   button.radius, .button.radius {
     border-radius: 3px; }
+  button.homeradius, .button.homeradius {
+    border-radius: 3px;
+    background-color: #007095;
+    cursor: auto;
+  }
   button.round, .button.round {
     border-radius: 1000px; }
   button.disabled, button[disabled], .button.disabled, .button[disabled] {
