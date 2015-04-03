@@ -1,0 +1,530 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"paddi",
+				"padding-right"
+			],
+			[
+				"s",
+				"span	Tag"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"l",
+				"li	Tag"
+			],
+			[
+				"fon",
+				"font-style"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"n",
+				"nav	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<!doctype html>\n<html class=\"no-js\" lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>IUDM </title>\n    <link href='http://fonts.googleapis.com/css?family=Patua+One|Nobile' rel='stylesheet' type='text/css'>\n    <link rel=\"stylesheet\" href=\"css/foundation.css\" />\n    <link rel=\"stylesheet\" href=\"css/search.css\" />\n	  <link rel=\"stylesheet\" href=\"css/buttons.css\" />\n    <link rel=\"stylesheet\" href=\"fontawesome/css/font-awesome.min.css\">\n    <script src=\"js/vendor/modernizr.js\"></script>\n  </head>\n  <body>\n\n    <nav class=\"top-bar\" data-topbar role=\"navigation\">\n      <ul class=\"title-area\">\n        <li class=\"name\">\n          <h1><a href=\"#\"></a></h1>\n        </li>\n        <li class=\"toggle-topbar menu-icon\"><a href=\"#\"><span></span></a></li>\n      </ul>\n\n      <section class=\"top-bar-section\">\n\n        <!-- Left Nav Section/end of nav bar -->\n        <ul class=\"left\">\n          <li><a href=\"capstonemainpage.html\"><i class=\"fa fa-home\"></i></a></li>\n          <li>\n            <div class=\"row collapse\">\n              <a href=\"https://secure2.convio.net/rcf/site/Donation2;jsessionid=975B9ABE29B954AD792E9E8DFDC01137.app262a?idb=1592787797&df_id=2182&2182.donation=form1&FR_ID=1341&PROXY_ID=1341&PROXY_TYPE=21\" class=\"radius alert button expand\">&nbsp;DONATE NOW!&nbsp;</a></li>\n            </div>\n          </li>\n        </ul>\n\n        <!-- Right Nav Section -->\n\n        <ul class=\"right\">\n\n\n          <li class=\"radius button\">The Team</li>\n\n          <li class=\"has-dropdown\">\n            <a href=\"#\">Menu</a>\n            <ul class=\"dropdown\">\n              <li><a href=\"capstonemainpage.html\">Homepage</a></li>\n              <li class=\"has-dropdown\"><a href=\"capstoneaboutpage.html\">About</a>\n                  <ul class=\"dropdown\">\n                    <li><a href=\"capstonehistorypage.html\">History</a></li>\n                    <li><a href=\"capstoneinspirationpage.html\">Inspiration</a></li>\n                    <li><a href=\"capstonepresspage.html\">Press</a></li>\n                    <li><a href=\"capstonemediapage.html\">Media</a></li>\n                  </ul>\n              </li>\n              <li class><a href=\"committees.html\">Committees</a></li>\n              <li class=\"has-dropdown\"><a href=\"involvement.html\">Get Involved</a>\n                <ul class=\"dropdown\">\n                  <li><a href=\"studentinvolvement.html\">Students</a></li>\n                  <li><a href=\"corporateinvolvement.html\">Corporate</a></li>\n                  <li><a href=\"familyinvolvement.html\">Families</a></li>\n                  <li><a href=\"alumniinvolvement.html\">Alumni</a></li>\n                </ul> \n              </li>\n          <li><a href=\"ecard.html\">E-Cards</a></li>\n          <li><a href=\"capstonecontactpage.html\">Contact</a></li>\n          <li class=\"has-dropdown\"><a href=\"capstoneapparelpage.html\">Apparel Store</a></li>\n          	<ul class=\"dropdown\">\n          		<li><a href=\"shoppingcart.html\">Shopping Cart</a></li>\n          	</ul>\n              <li><a href=\"ecard.html\">Make an E-card</a></li>\n              <li><a href=\"capstonecontactpage.html\">Contact</a></li>\n              <li><a href=\"http://www.iudm.org/?page_id=3724\">Apparel Store</a></li>\n            </ul>\n          </li>\n        </ul>\n      </section>\n    </nav>\n\n<!--end navigation bar, begin logo and search bar section-->\n\n    <!--main logo picture-->\n    <div class = \"imgrow\">\n      <div class=\"large-3 columns\">\n          <h1><img src=\"http://www.iudm.org/wp-content/uploads/2014/07/xIUDM-FINAL-LOGO-e1405570111613.png.pagespeed.ic.BgTpf9ZJnM.jpg&text=Logo\"></h1>\n      </div>\n      <!--google search bar-->\n      <div class = \"large-9 columns\">\n          <div class = \"search\">\n            <script>\n              (function() {\n                var cx = '008546610537441750787:kwwdjpgofiw';\n                var gcse = document.createElement('script');\n                gcse.type = 'text/javascript';\n                gcse.async = true;\n                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +\n                    '//www.google.com/cse/cse.js?cx=' + cx;\n                var s = document.getElementsByTagName('script')[0];\n                s.parentNode.insertBefore(gcse, s);\n              })();\n            </script>\n            <gcse:searchbox-only></gcse:searchbox-only>\n           </div>\n       </div>\n      </div>\n<!--end header and begin content->\n<!--end header section and begin main content-->",
+			"settings":
+			{
+				"buffer_size": 4509,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!--end header and begin content->\n<!--end header section and begin main content-->   \n    <div class=\"row\">\n      <div class=\"large-4 small-12 columns\">\n        <div class=\"hide-for-small panel\">\n          <h3>Get Involved!</h3>\n          <h5 class=\"subheader\">\n          <ul class=\"side-nav\">\n            <li><a href=\"vps.html\"> President and VPs </a> </li>\n            <li><a href=\"accounting.html\">Accounting</a></li>\n            <li><a href=\"alumnirelations.html\">Alumni Relations</a></li>\n            <li><a href=\"corporaterelations.html\">Corporate Relations</a></li>\n            <li><a href=\"dancerrelations.html\">Dancer Relations</a></li>\n            <li><a href=\"entertainment.html\">Entertainment</a></li>\n            <li><a href=\"fundraising.html\">Fundraising</a></li>\n            <li><a href=\"hospitality.html\">Hospitality</a></li>\n            <li><a href=\"logistics.html\">Logistics</a></li>\n            <li><a href=\"marathonrelations.html\">Marathon Relations</a></li>\n            <li><a href=\"Marketing.html\">Marketing</a></li>\n            <li><a href=\"ma.html\">Merchandising and Apparel</a></li>\n            <li><a href=\"morale.html\">Morale</a></li>\n            <li><a href=\"publicrelations.html\">Public Relations</a></li>\n            <li><a href=\"recruitment.html\">Recruitment</a></li>\n            <li><a href=\"rileydevelopment.html\">Riley Development</a></li>\n            <li><a href=\"specialevents.html\">Special Events</a></li>\n            <li><a href=\"stewardship.html\">Stewardship</a></li>\n          </ul>\n          </h5>\n        </div>\n        <a href=\"#\">\n        <div class=\"panel callout radius\">\n          <h6>Alumni Relations</h6>\n        </div></a>\n      </div>  \n\n       <div class=\"large-8 columns\">\n          <div class=\"row\">\n           <h3>Alumni Relations <small>Amanda Crummett</small></h3>\n              <p>The Alumni Relations committee works directly with the IUDM Alumni to help them continue their passion for IUDM! If you want to help inspire everyone for the 25th Anniversary... Alumni Relations is the committee for you! Come join our famARy &hearts;\" -Amanda Crummett, Director of Alumni Relations</p>\n            </div>\n          </div>\n        </div>     \n    </div>",
+			"settings":
+			{
+				"buffer_size": 2209,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!--end main content and begin footer-->   \n     <div align=\"center\" style=\"margin: 15px 0px 0px;\"><noscript><div align=\"center\" style=\"width: 140px; border: 1px solid rgb(204, 204, 204); text-align: center; color: rgb(249, 249, 255); font-weight: bold; font-size: 12px; background-color: rgb(0, 140, 186);\"><a href=\"http://mycountdown.org/My_Countdown/My_countdown/\" style=\"text-decoration: none; font-size: inherit; color: rgb(249, 249, 255);\">My Countdown </a></div></noscript><script type=\"text/javascript\" src=\"http://mycountdown.org/countdown.php?cp2_Hex=008cba&cp1_Hex=F9F9FF&img=1&hbg=&fwdt=270&lab=1&ocd=My Countdown&text1=IUDM 2015&text2=IUDM 2015&group=My Countdown&countdown=My Countdown&widget_number=3011&event_time=1446235200&timezone=UTC\"></script></div>\n      <footer>\n      <div class=\"row\">\n        <div class=\"large-12 columns\">\n          <hr/>\n          <div class=\"row\">\n            <div class=\"large-5 columns\">\n              <p>© Indiana University Dance Marathon</p>\n            </div>\n\n\n            <div class=\"large-7 columns\">\n              <ul class=\"inline-list right\">\n                <li>Follow us on:&nbsp;</li>\n                <li><a href=\"https://twitter.com/iudm\">\n                  <i class=\"fa fa-twitter-square\"></i></a></li>\n                <li><a href=\"https://www.facebook.com/IndianaUniversityDanceMarathon\">\n                 <i class=\"fa fa-facebook-square\"></i></a></li>\n                <li><a href=\"https://www.youtube.com/channel/UCKRTOXEGkRxNEg3qQ5-Wp-A\">\n                  <i class=\"fa fa-youtube-square\"></i></a></li>\n                <li><a href=\"https://www.linkedin.com/company/indiana-university-dance-marathon?trk=tyah&trkInfo=tarId%3A1419124742214%2Ctas%3Aindiana+university+dance+marathon%2Cidx%3A2-1-2\">\n                  <i class=\"fa fa-linkedin-square\"></i></a></li>\n                <li><a href=\"https://www.pinterest.com/iudancemarathon/\">\n                  <i class=\"fa fa-pinterest-square\"></i></a></li>\n                <li><a href=\"https://instagram.com/iudancemarathon/\">\n                  <i class=\"fa fa-instagram\"></i></a></li>\n                \n              </ul>\n            </div>\n          </div>\n      </footer>\n     \n    <!--javascript files-->\n    <script src=\"js/vendor/jquery.js\"></script>\n    <script src=\"js/foundation.min.js\"></script>\n    <script>\n      $(document).foundation();\n    </script>\n  </body>\n</html>\n",
+			"settings":
+			{
+				"buffer_size": 2392,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "capstonemainpage.html",
+			"settings":
+			{
+				"buffer_size": 9396,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pacck",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Enable Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Package Control: Add Repository"
+			],
+			[
+				"",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/kaelyntoth/Desktop/CAPSTONE",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/css",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/fontawesome/css"
+	],
+	"file_history":
+	[
+		"/Users/kaelyntoth/Desktop/CAPSTONE/committees.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/alumnirelations.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/css/foundation.css",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/vps.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/stewardship.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/rileydevelopment.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/recruitment.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/publicrelations.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/morale.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/Marketing.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/marathonrelations.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/ma.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/hospitality.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/fundraising.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/entertainment.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/dancerrelations.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/corporaterelations.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/accounting.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/corporateinvolvement.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/involvement.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/familyinvolvement.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/ecard.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/ecardty.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/contact.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/capstonepresspage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/capstonemediapage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/capstonemainpage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/capstoneinspirationpage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/capstonehistorypage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/capstonecontactpage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/capstonecommitteeexample.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/capstoneapparelpage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/capstoneaboutpage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/alums.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/alumniinvolvement.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/alumniboard.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/studentinvolvement.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/specialevents.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/shoppingcart.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/reconnect.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/logistics.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/fontawesome/css/font-awesome.css",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/css/buttons.css",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/mediapage.html",
+		"/Users/kaelyntoth/Downloads/Contact Page/ScatteredPolaroidsGallery/css/component.css",
+		"/Users/kaelyntoth/Downloads/Contact Page/ScatteredPolaroidsGallery/contact.html",
+		"/Users/kaelyntoth/Downloads/ecard.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/gulpfile.js",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/iudm_reg.php",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/package.json",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonecontactpage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/css/foundation.css",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonemainpage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonecommitteeexample.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonehistorypage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/iudm_regform.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstoneaboutpage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE/capstoneourhistorypage.html",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/gulp.js",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/capstonecommitteeexample",
+		"/Users/kaelyntoth/Desktop/CAPSTONE.1 2/iudm_regform.php",
+		"/Users/kaelyntoth/Downloads/foundation-5.5.1 2/css/foundation.css",
+		"/Users/kaelyntoth/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/kaelyntoth/Downloads/foundation-5.5.1 2/capstonehistorypage.html",
+		"/Users/kaelyntoth/Downloads/foundation-5.5.1 2/capstoneaboutpage.html",
+		"/Users/kaelyntoth/Downloads/foundation-5.5.1 2/capstonecontactpage.html",
+		"/Users/kaelyntoth/Downloads/foundation-5.5.1 2/capstonecommitteeexample.html",
+		"/Users/kaelyntoth/Documents/mainpageredo.html",
+		"/Users/kaelyntoth/Library/Application Support/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
+		"/Users/kaelyntoth/Desktop/kaelyn_edit.php",
+		"/Users/kaelyntoth/Desktop/iudm_email.html",
+		"/Users/kaelyntoth/Desktop/email.css",
+		"/Users/kaelyntoth/Downloads/css-foundations.zip",
+		"/Users/kaelyntoth/Desktop/spaceship.py",
+		"/Users/kaelyntoth/Documents/mathQuiz.py",
+		"/Users/kaelyntoth/Documents/charles1.py",
+		"/Users/kaelyntoth/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"jackson",
+			"menu",
+			"active",
+			"act",
+			"acti",
+			"active",
+			"home",
+			"active",
+			"back ",
+			"</b>",
+			"<b>",
+			"top-bar-section",
+			"top-bar",
+			".left",
+			"a:hover",
+			"fa-2x",
+			"pinterest",
+			"facebook",
+			"fa-2x",
+			"aceboo",
+			"home",
+			"pinter",
+			"insta",
+			"linke",
+			"yout",
+			"facebook",
+			"twitter",
+			"twi",
+			"a:hover",
+			"top-bar",
+			"nav ",
+			"alert",
+			"alert-button",
+			"img",
+			"util",
+			"top-bar-section ",
+			"alert",
+			"alert button",
+			"font-family: \"Helvetica Neue\",",
+			"font-family",
+			"font",
+			"normalize",
+			"input ",
+			"title-area ",
+			"active",
+			"#333333",
+			"top-bar",
+			".back",
+			"back ",
+			"back",
+			"#999999",
+			"off-canvas-list",
+			"left-off-canvas",
+			"left-off",
+			"column"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			" </h5>",
+			" <h5>",
+			" ",
+			"",
+			"font-family: \"Nobile\",",
+			"#008CBA"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4509,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								4509
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1374,
+								1374
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2392,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2091,
+								2091
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "capstonemainpage.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9396,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 711.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.959349593496,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "CAPSTONE.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 254.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
